@@ -1,0 +1,59 @@
+* Humble Share App
+Humble Share is an android application which hooks into the android
+share functionality and allows to share text with an arbitrary
+webservice. The application posts the shared data as a json string to
+a configured webservice url (with optional http authentication).
+** Motivation
+Initially I implemented this for personal use, but I generalized the
+idea, because I thought a "generic" share app would be useful for
+everybody who doesn't want to build an android app, but is familiar
+with any server side language such a python, php, perl, java or
+whatever.
+** Configuration
+When started (via share functionality or launcher), the application
+switches to the configuration view as long as no webservice url is
+configured. Configure and save your webservice there. HTTP basic
+authentication is optional and will not be sent if empty.
+** Request format
+The applications sends 3 fields, the shared content, a timestamp and a
+user chosen type.
+
+#+BEGIN_EXAMPLE
+POST /share HTTP/1.0
+Host: localhost:5000
+Connection: close
+Accept: application/json
+Content-type: application/json
+Content-Length: 63
+User-Agent: Apache-HttpClient/UNAVAILABLE (java 1.4)
+Authorization: Basic <credentials>
+
+{"content":"test","timestamp":"2014-07-23 10:14","type":"Link"}
+#+END_EXAMPLE
+** Available backends
+There is no generally available backend provided yet, but you can
+easily roll you own. That's the idea. My personal backend uses a
+python flask app which commits the share into my
+calendar/note/todo/bookmark git repostory using org-mode files.
+** License Remarks
+*** Application icons
+The application icons have been created with the "Android Asset
+Studio", and are CC licensed, see:
+https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
+https://creativecommons.org/licenses/by/3.0/
+*** GSON Library
+The application uses the gson-2.2.4.jar library, for its license see
+libs/LICENSE.
+** Known Problems
+*** App Store Availability
+I don't have time currently to deal with app store availability.
+*** "No Peer Certificate"
+If you want to use a self signed ssl certificate you have to create a
+trust store on your own.
+
+A manual how to do this can be found here:
+http://blog.crazybob.org/2010/02/android-trusting-ssl-certificates.html
+
+Move the file into "/res/raw/mystore.bks" and rebuild the
+application. The resource will be picked up by the TrustingHttpClient,
+if packaged with the app.

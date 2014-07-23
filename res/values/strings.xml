@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Humble Share</string>
+    <string-array name="share_types">
+        <item>Link</item>
+        <item>Note</item>
+        <item>Task</item>
+        <item>Contact</item>
+    </string-array>    
+</resources>

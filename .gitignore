@@ -1,0 +1,9 @@
+# Android specific temporary files
+gen
+build
+.gradle
+bin
+local.properties
+
+# Don't commit the trusded keystore
+res/raw/mystore.bks
