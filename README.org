@@ -14,7 +14,7 @@ When started (via share functionality or launcher), the application
 switches to the configuration view as long as no webservice url is
 configured. Configure and save your webservice there. HTTP basic
 authentication is optional and will not be sent if empty.
-** Request format
+** Request Format
 The applications sends 3 fields, the shared content, a timestamp and a
 user chosen type.
 
@@ -30,7 +30,7 @@ Authorization: Basic <credentials>
 
 {"content":"test","timestamp":"2014-07-23 10:14","type":"Link"}
 #+END_EXAMPLE
-** Available backends
+** Available Backends
 There is no generally available backend provided yet, but you can
 easily roll you own. That's the idea. My personal backend uses a
 python flask app which commits the share into my

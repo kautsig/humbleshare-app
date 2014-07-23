@@ -5,5 +5,5 @@ build
 bin
 local.properties
 
-# Don't commit the trusded keystore
+# Don't commit the trusted keystore
 res/raw/mystore.bks
