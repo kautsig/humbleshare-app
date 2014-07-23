@@ -15,7 +15,7 @@ switches to the configuration view as long as no webservice url is
 configured. Configure and save your webservice there. HTTP basic
 authentication is optional and will not be sent if empty.
 ** Request Format
-The applications sends 3 fields, the shared content, a timestamp and a
+The application sends 3 fields, the shared content, a timestamp and a
 user chosen type.
 
 #+BEGIN_EXAMPLE
